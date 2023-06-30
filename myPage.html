@@ -4,76 +4,90 @@
 <title>MovementRx | My page</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
 
+    .gridDiv {
+        background-color: rgba(54,120,155);
+        padding:10px;
+        color: white;
+        border: 3px solid rgb(31,81,108);
+    }
+
+    .div1 { grid-area: 1 / 1 / 2 / 2; margin-left: 10px;}
+    .div2 { grid-area: 2 / 1 / 3 / 2; margin-left: 10px;}
+    .div3 { grid-area: 1 / 2 / 3 / 3; margin-right: 10px;}
+    .div4 { grid-area: 3 / 1 / 4 / 3; margin-left: 10px; margin-right: 10px;}
+    .div5 { grid-area: 4 / 1 / 5 / 2; margin-left: 10px; margin-bottom: 10px;}
+    .div6 { grid-area: 4 / 2 / 5 / 3; margin-right: 10px; margin-bottom: 10px;}
+</style>
 </head>
 <body>
 <h3>MovementRx</h3>
 <h2>My Page</h2>
 
-<div class="container">
-    <div class="row">
-
-        <div id="checklist" class="col">
-            <div class="row my-1 p-3 bg-info text-white rounded">
-                <div class="col">
-                    <h5 class="text-center">Checklist</h5>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Excercice 1
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Excercice 2
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Excercice 3
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-1 p-3 bg-info text-white rounded">
-                <div class="col">
-                    <h5  class="text-center">Excercice description</h5>
-                    <p>Description of the excercice of stuff and stuff</p>
-                </div>
-            </div>
+<div class="parent">
+    <div id="checklist" class="div1 rounded gridDiv">
+        <h5 class="text-center">Checklist</h5>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault" onclick="changeOnChecklistClick()">
+                Excercice 1
+            </label>
+            <!--<input type="button" onclick="changeOnChecklistClick()" value="Excercice 1">-->
         </div>
-
-        <div id="video" class="col p-3 ms-1 bg-info text-white rounded">
-            <h5 class="text-center">Video</h5>
-            <div class="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" title="YouTube video" allowfullscreen></iframe>
-            </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Excercice 2
+            </label>
         </div>
-
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Excercice 3
+            </label>
+        </div>
     </div>
 
-    <div id="notes" class="row my-1 p-3 bg-info text-white rounded">
+    <div class="div2 rounded gridDiv" id="excercieDescription">
+        <h5 class="text-center" id="title">Excercice description</h5>
+        <p id="description">Description of the excercice of stuff and stuff</p>
+    </div>
+
+    <div id="video" class="div3 rounded gridDiv">
+        <h5 class="text-center">Video</h5>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" title="YouTube video" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div id="notes" class="div4 rounded gridDiv">
         <h5 class="text-center">Notes</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-    
-    <div class="row my-1">
         
-        <div id="readingMaterials" class="col p-3 me-1 bg-info text-white rounded">
-            <h5 class="text-center">Reading Material</h5>
-            <a href="newsletter_01.pdf" target="_blank" class="text-white">Readings 1</a>
-            <br>
-            <a href="newsletter_01.pdf" target="_blank" class="text-white">Readings 2</a>
-        </div>
-
-        <div id="calendar" class="col p-3 ms-1 bg-info text-white rounded">
-            <h5 class="text-center">Calendar</h5>
-        </div>
-
+    <div id="readingMaterials" class="div5 rounded gridDiv">
+        <h5 class="text-center">Reading Material</h5>
+        <a href="placeHolder.pdf" target="_blank" style="color: white;">Readings 1</a>
+        <br>
+        <a href="placeHolder.pdf" target="_blank" style="color: white;">Readings 2</a>
+    </div>
+    
+    <div id="calendar" class="div6 rounded gridDiv">
+        <h5 class="text-center">Calendar</h5>
     </div>
 </div>
-
+<script>
+    function changeOnChecklistClick(){
+        document.querySelector("#excercieDescription #title").innerHTML = "newTitle";
+        document.querySelector("#excercieDescription #description").innerHTML = "newDescription";
+    }
+</script>
 </body>
 </html>
